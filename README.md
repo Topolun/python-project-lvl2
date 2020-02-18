@@ -1,1 +1,1 @@
-Мой второй проект
+[![asciicast](https://asciinema.org/a/1ZMw227pu50WTmZt4eX7pXWPz.svg)](https://asciinema.org/a/1ZMw227pu50WTmZt4eX7pXWPz)
