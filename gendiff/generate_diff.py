@@ -16,5 +16,4 @@ def recieve_json(first_file, second_file):
             result += '- {}: {}\n'.format(key, value)
     for key, value in second.items():
         result += '+ {}: {}\n'.format(key, value)
-    result += '}'
-    return result
+    return result + '}'
