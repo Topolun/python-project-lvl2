@@ -1,1 +1,1 @@
-from gendiff.generate_diff import recieve_json, recieve_yaml  # noqa: F401
+from gendiff.generate_diff import find_differences  # noqa: F401

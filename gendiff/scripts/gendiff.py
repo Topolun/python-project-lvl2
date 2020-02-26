@@ -10,7 +10,7 @@ args = parser.parse_args()
 
 
 def main():
-    print(generate_diff.recieve_json(args.first_file, args.second_file))
+    print(generate_diff.find_differences(args.first_file, args.second_file))
 
 
 if __name__ == '__main__':
