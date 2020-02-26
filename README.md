@@ -7,3 +7,7 @@ Travis - ci
 
 1 шаг
 [![asciicast](https://asciinema.org/a/1ZMw227pu50WTmZt4eX7pXWPz.svg)](https://asciinema.org/a/1ZMw227pu50WTmZt4eX7pXWPz)
+
+Сравнение плоских файлов шаг 5
+
+[![asciicast](https://asciinema.org/a/PYUi9HzeLHJlCU7GueF9Xk65z.svg)](https://asciinema.org/a/PYUi9HzeLHJlCU7GueF9Xk65z)
