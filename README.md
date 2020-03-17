@@ -11,3 +11,7 @@ Travis - ci
 Сравнение плоских файлов шаг 5
 
 [![asciicast](https://asciinema.org/a/PYUi9HzeLHJlCU7GueF9Xk65z.svg)](https://asciinema.org/a/PYUi9HzeLHJlCU7GueF9Xk65z)
+
+Сравнение файлов с вложенными структурами шаг 6
+
+[![asciicast](https://asciinema.org/a/IgEtwSbdyTNTVT0LdQCTMTvlv.svg)](https://asciinema.org/a/IgEtwSbdyTNTVT0LdQCTMTvlv)
