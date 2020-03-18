@@ -18,5 +18,9 @@ start_advanced:
 	poetry run gendiff ./tests/fixtures/advanced_before.json ./tests/fixtures/advanced_after.json
 	poetry run gendiff ./tests/fixtures/advanced_before.yml ./tests/fixtures/advanced_after.yml
 
+start_plain:
+	poetry run gendiff --format plain ./tests/fixtures/advanced_before.json ./tests/fixtures/advanced_after.json
+	poetry run gendiff --format plain ./tests/fixtures/before.json ./tests/fixtures/after.json
+
 publish:
 	poetry publish -r test
