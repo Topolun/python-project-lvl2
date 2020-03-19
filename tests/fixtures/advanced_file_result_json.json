@@ -1,0 +1,37 @@
+{
+    "common": {
+        "setting1": "Value 1",
+        "deleted": {
+            "setting2": "200",
+            "setting6": {
+                "key": "value"
+            }
+        },
+        "setting3": true,
+        "added": {
+            "setting4": "blah blah",
+            "setting5": {
+                "key5": "value5"
+            }
+        }
+    },
+    "group1": {
+        "added": {
+          "baz": "bars"
+        },
+        "deleted": {
+            "baz": "bas"
+        },
+        "foo": "bar"
+    },
+    "deleted": {
+        "group2": {
+            "abc": "12345"
+        }
+    },
+    "added": {
+        "group3": {
+            "fee": "100500"
+        }
+    }
+}

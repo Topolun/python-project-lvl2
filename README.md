@@ -20,3 +20,7 @@ Travis - ci
 Сравнение файлов с вложенными структурами, вывод в упрощенном формате шаг 7
 
 [![asciicast](https://asciinema.org/a/idwz8M2KQ0VeusIFdd94QHSnk.svg)](https://asciinema.org/a/idwz8M2KQ0VeusIFdd94QHSnk)
+
+Сравнение файлов с вложенными структурами, вывод в JSON шаг 8
+
+[![asciicast](https://asciinema.org/a/qCGIUf6KGLs40nnsB1znrKf17.svg)](https://asciinema.org/a/qCGIUf6KGLs40nnsB1znrKf17)
