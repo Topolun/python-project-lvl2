@@ -6,7 +6,6 @@ install: make
 
 before_install: 
     - pip install poetry
-    - pip install pytest
     
 script: 
     - make lint

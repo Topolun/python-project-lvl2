@@ -1,19 +1,34 @@
+import json
+import yaml
+from os.path import splitext
+
+
+def load_file(file):
+    _, first_extension = splitext(file)
+    if first_extension == '.json':
+        return json.load(open(file))
+    elif first_extension == '.yml':
+        return yaml.safe_load(open(file))
+    else:
+        return False
+
+
 def compare(first, second):
-    a = []
+    result = []
     for key, value in first.items():
         checker = second.pop(key, 'not_found')
         if checker == 'not_found':
-            a.append(deleting(key, value))
+            result.append(deleting(key, value))
         elif value == checker:
-            a.append(add_equal(key, value))
+            result.append(add_equal(key, value))
         else:
             if type(value) is dict and type(checker) is dict:
-                a.append(add_not_equal(key, compare(value, checker)))
+                result.append(add_not_equal(key, compare(value, checker)))
             else:
-                a.append(add_changes(key, checker, value))
+                result.append(add_changes(key, checker, value))
     for key, value in second.items():
-        a.append(add_new(key, value))
-    return a
+        result.append(add_new(key, value))
+    return result
 
 
 def add_new(key, value):
