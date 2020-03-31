@@ -3,9 +3,9 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/7f24b294f6ddf75a8537/maintainability)](https://codeclimate.com/github/Topolun/python-project-lvl2/maintainability)
 [![Build Status](https://travis-ci.org/Topolun/python-project-lvl2.svg?branch=master)](https://travis-ci.org/Topolun/python-project-lvl2)
 
-**To install this CLI please enter in command line:**
+**To install this CLI please enter in the command line:**
 
-*pip install -i https://test.pypi.org/simple/ topolun-gendiff --extra-index-url https://pypi.org/simple*
+    pip install -i https://test.pypi.org/simple/ topolun-gendiff --extra-index-url https://pypi.org/simple
 
 
 
