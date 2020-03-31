@@ -5,7 +5,7 @@
 
 **To install this CLI please enter in command line:**
 
-*pip install -i https://test.pypi.org/simple/ topolun-gendiff --extra-index-url https://pypi.org/simple topolun-brain-games*
+*pip install -i https://test.pypi.org/simple/ topolun-gendiff --extra-index-url https://pypi.org/simple*
 
 
 
