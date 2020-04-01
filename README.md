@@ -11,7 +11,7 @@
 
 ## How it is works:
 
-- To compare 2 files just enter <u>gendiff</u> and path to the files
+- To compare 2 files just enter `gendiff` and path to the files
 
     [![asciicast](https://asciinema.org/a/1ZMw227pu50WTmZt4eX7pXWPz.svg)](https://asciinema.org/a/1ZMw227pu50WTmZt4eX7pXWPz)
 
@@ -23,10 +23,12 @@
 
     [![asciicast](https://asciinema.org/a/IgEtwSbdyTNTVT0LdQCTMTvlv.svg)](https://asciinema.org/a/IgEtwSbdyTNTVT0LdQCTMTvlv)
 
-- You may choose alternative output format by typing <u>--format plain</u> after gendiff
+- You may choose alternative output format by typing `--format plain` after `gendiff`
 
     [![asciicast](https://asciinema.org/a/idwz8M2KQ0VeusIFdd94QHSnk.svg)](https://asciinema.org/a/idwz8M2KQ0VeusIFdd94QHSnk)
 
-- Also you may unload data as JSON
+- Also you may choose output as JSON by typing `--format json` after `gendiff`
 
     [![asciicast](https://asciinema.org/a/qCGIUf6KGLs40nnsB1znrKf17.svg)](https://asciinema.org/a/qCGIUf6KGLs40nnsB1znrKf17)
+
+- This CLI is working just with `json` and `yml` formats. It doesn't work with any other formats
