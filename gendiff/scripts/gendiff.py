@@ -1,18 +1,11 @@
-import argparse
-from gendiff import generate_diff
+from gendiff.engine import generate_diff
+from gendiff import parsers
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Generate diff')
-    parser.add_argument(
-        '-f', '--format', type=str, help='set format of output'
-        )
-    parser.add_argument('first_file', type=str, help='first file for check')
-    parser.add_argument('second_file', type=str, help='second file for check')
-    args = parser.parse_args()
-
+    args = parsers.cli()
     print(
-        generate_diff.find_differences(
+        generate_diff(
             args.first_file, args.second_file, args.format
             )
         )

@@ -1,10 +1,11 @@
-from gendiff.generate_diff import find_differences
+from gendiff.engine import generate_diff
 import json
+from gendiff.formatters import json as format_json
 
 def test_compare_json_files_json_format():
     with open('./tests/fixtures/advanced_file_result_json.json') as correct_answer:
-        assert find_differences(
+        assert generate_diff(
             './tests/fixtures/advanced_before.json',
             './tests/fixtures/advanced_after.json',
-            format='json'
+            format_json
             ) == json.load(correct_answer)

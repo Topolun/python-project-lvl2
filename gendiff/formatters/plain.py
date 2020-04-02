@@ -1,4 +1,4 @@
-def render_plain(data, path=''):
+def format(data, path=''):
     result = ''
     if type(data) == list:
         for item in data:
@@ -15,7 +15,7 @@ def render_plain(data, path=''):
                     )
             else:
                 a = path + '{}.'.format(key)
-                way = render_plain(value, a)
+                way = format(value, a)
             result += way
     return result
 

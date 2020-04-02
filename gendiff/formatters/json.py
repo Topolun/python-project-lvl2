@@ -1,4 +1,4 @@
-def render_json(items, unpack=''):
+def format(items, unpack=''):
     result = {}
     for item in items:
         action = item['Action']
@@ -14,7 +14,7 @@ def render_json(items, unpack=''):
         elif action == '=':
             result[key] = value
         else:
-            result[key] = render_json(value)
+            result[key] = format(value)
     return result
 
 

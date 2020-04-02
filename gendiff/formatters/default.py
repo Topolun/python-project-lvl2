@@ -1,4 +1,4 @@
-def render(items, level=0):
+def format(items, level=0):
     result = '{\n'
     offset = '    ' * level
     for item in items:
@@ -7,7 +7,7 @@ def render(items, level=0):
         value = item['Value']
         if type(value) is list:
             result += '{}{}{}: {}'.format(
-                offset, result_of_compare, key, render(value, level + 1)
+                offset, result_of_compare, key, format(value, level + 1)
                 )
         elif type(value) is dict:
             result += '{}{}{}: {}'.format(
