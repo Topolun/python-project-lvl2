@@ -1,9 +1,9 @@
 def format(items, unpack=''):
     result = {}
     for item in items:
-        action = item['Action']
-        key = item['Key']
-        value = item['Value']
+        action = item['STATUS']
+        key = item['KEY']
+        value = item['VALUE']
         if action == '+':
             result['added'] = add_to_dict('added', result, key, value)
         elif action == '-':

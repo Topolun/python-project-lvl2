@@ -2,9 +2,9 @@ def format(items, level=0):
     result = '{\n'
     offset = '    ' * level
     for item in items:
-        result_of_compare = add_symbols(item['Action'])
-        key = item['Key']
-        value = item['Value']
+        result_of_compare = add_symbols(item['STATUS'])
+        key = item['KEY']
+        value = item['VALUE']
         if type(value) is list:
             result += '{}{}{}: {}'.format(
                 offset, result_of_compare, key, format(value, level + 1)

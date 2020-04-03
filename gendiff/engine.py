@@ -8,35 +8,31 @@ def compare(first, second):
     for key, value in first.items():
         checker = second.pop(key, 'not_found')
         if checker == 'not_found':
-            result.append(deleting(key, value))
+            result.append(deleted_node(key, value))
         elif value == checker:
-            result.append(add_equal(key, value))
+            result.append(unchanged_node(key, value))
         else:
             if type(value) is dict and type(checker) is dict:
-                result.append(add_not_equal(key, compare(value, checker)))
+                result.append(nested_node(key, compare(value, checker)))
             else:
-                result.append(add_changes(key, checker, value))
+                result.append(changed_node(key, (checker, value)))
     for key, value in second.items():
-        result.append(add_new(key, value))
+        result.append(new_node(key, value))
     return result
 
 
-def add_new(key, value):
-    return {'Action': '+', 'Key': key, 'Value': value}
+def make_node(status):
+    return lambda key, value: {'STATUS': status, 'KEY': key, 'VALUE': value}
 
 
-def deleting(key, value):
-    return {'Action': '-', 'Key': key, 'Value': value}
+NODE_NEW = '+'
+NODE_DELETED = '-'
+NODE_UNCHANGED = '='
+NODE_CHANGED = '+-'
+NODE_NESTED = '!='
 
-
-def add_equal(key, value):
-    return {'Action': '=', 'Key': key, 'Value': value}
-
-
-def add_not_equal(key, value):
-    return {'Action': '!=', 'Key': key, 'Value': value}
-
-
-def add_changes(key, value1, value2):
-    changes = (value1, value2)
-    return {'Action': '+-', 'Key': key, 'Value': changes}
+deleted_node = make_node(NODE_DELETED)
+new_node = make_node(NODE_NEW)
+unchanged_node = make_node(NODE_UNCHANGED)
+changed_node = make_node(NODE_CHANGED)
+nested_node = make_node(NODE_NESTED)

@@ -2,9 +2,9 @@ def format(data, path=''):
     result = ''
     if type(data) == list:
         for item in data:
-            action = item['Action']
-            key = item['Key']
-            value = item['Value']
+            action = item['STATUS']
+            key = item['KEY']
+            value = item['VALUE']
             if action == '+' or action == '-':
                 way = "Property '{}{}' {}\n".format(
                     path, key, insert_description(action, value)
