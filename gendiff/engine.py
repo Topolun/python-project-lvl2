@@ -5,19 +5,21 @@ def generate_diff(first_file, second_file, format):
 
 def compare(first, second):
     result = []
+    keys_for_first = set(first.keys())
+    keys_for_second = set(second.keys())
     for key, value in first.items():
-        checker = second.pop(key, 'not_found')
-        if checker == 'not_found':
+        if not key in keys_for_second:
             result.append(deleted_node(key, value))
-        elif value == checker:
+        elif value == second[key]:
             result.append(unchanged_node(key, value))
         else:
-            if type(value) is dict and type(checker) is dict:
-                result.append(nested_node(key, compare(value, checker)))
+            if type(value) is dict and type(second[key]) is dict:
+                result.append(nested_node(key, compare(value, second[key])))
             else:
-                result.append(changed_node(key, (checker, value)))
+                result.append(changed_node(key, (second[key], value)))
     for key, value in second.items():
-        result.append(new_node(key, value))
+        if not key in keys_for_first:
+            result.append(new_node(key, value))
     return result
 
 
