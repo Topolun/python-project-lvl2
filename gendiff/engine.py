@@ -8,7 +8,7 @@ def compare(first, second):
     keys_for_first = set(first.keys())
     keys_for_second = set(second.keys())
     for key, value in first.items():
-        if not key in keys_for_second:
+        if key not in keys_for_second:
             result.append(deleted_node(key, value))
         elif value == second[key]:
             result.append(unchanged_node(key, value))
@@ -18,7 +18,7 @@ def compare(first, second):
             else:
                 result.append(changed_node(key, (second[key], value)))
     for key, value in second.items():
-        if not key in keys_for_first:
+        if key not in keys_for_first:
             result.append(new_node(key, value))
     return result
 
