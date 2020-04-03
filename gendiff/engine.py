@@ -1,12 +1,5 @@
-from gendiff.parsers import load_file
-
-
 def generate_diff(first_file, second_file, format):
-    first = load_file(first_file)
-    second = load_file(second_file)
-    if not first or not second:
-        return 'File extension is not JSON or YML'
-    result = compare(first, second)
+    result = compare(first_file, second_file)
     return format(result)
 
 
