@@ -13,14 +13,13 @@ def format(items, level=0):
             result += '{}{}{}: {}'.format(
                 offset, result_of_compare, key, print_dict(value, level + 1)
                 )
+        elif type(value) is tuple:
+            result += '{}  + {}: {}\n'.format(offset, key, value[0])
+            result += '{}  - {}: {}'.format(offset, key, value[1])
         else:
-            if type(value) is tuple:
-                result += '{}  + {}: {}\n'.format(offset, key, value[0])
-                result += '{}  - {}: {}'.format(offset, key, value[1])
-            else:
-                result += '{}{}{}: {}'.format(
-                    offset, result_of_compare, key, value
-                    )
+            result += '{}{}{}: {}'.format(
+                offset, result_of_compare, key, value
+                )
         result += '\n'
     result += offset + '}'
     return result

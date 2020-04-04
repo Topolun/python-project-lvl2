@@ -12,11 +12,10 @@ def compare(first, second):
             result.append(deleted_node(key, value))
         elif value == second[key]:
             result.append(unchanged_node(key, value))
+        elif type(value) is dict and type(second[key]) is dict:
+            result.append(nested_node(key, compare(value, second[key])))
         else:
-            if type(value) is dict and type(second[key]) is dict:
-                result.append(nested_node(key, compare(value, second[key])))
-            else:
-                result.append(changed_node(key, (second[key], value)))
+            result.append(changed_node(key, (second[key], value)))
     for key, value in second.items():
         if key not in keys_for_first:
             result.append(new_node(key, value))
