@@ -1,4 +1,11 @@
-def format(items, unpack=''):
+import json
+
+
+def format(item):
+    return json.dumps(prepare_for_json(item))
+
+
+def prepare_for_json(items, unpack=''):
     result = {}
     for item in items:
         action = item['STATUS']
@@ -14,7 +21,7 @@ def format(items, unpack=''):
         elif action == '=':
             result[key] = value
         else:
-            result[key] = format(value)
+            result[key] = prepare_for_json(value)
     return result
 
 
