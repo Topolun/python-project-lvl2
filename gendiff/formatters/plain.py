@@ -1,29 +1,32 @@
+from gendiff import engine
+
+
 def format(data, path=''):
     result = ''
-    if type(data) == list:
+    if isinstance(data, list):
         for item in data:
-            action = item['STATUS']
-            key = item['KEY']
-            value = item['VALUE']
-            if action == '+' or action == '-':
+            status = item[engine.STATUS]
+            key = item[engine.KEY]
+            value = item[engine.VALUE]
+            if status == engine.NODE_NEW or status == engine.NODE_DELETED:
                 way = "Property '{}{}' {}\n".format(
-                    path, key, insert_description(action, value)
+                    path, key, insert_description(status, value)
                     )
-            elif action == '+-':
+            elif status == engine.NODE_CHANGED:
                 way = "Property '{}{}' {}\n".format(
-                    path, key, insert_description(action, value)
+                    path, key, insert_description(status, value)
                     )
             else:
-                a = path + '{}.'.format(key)
-                way = format(value, a)
+                new_path = path + '{}.'.format(key)
+                way = format(value, new_path)
             result += way
     return result
 
 
-def insert_description(action, value):
-    if action == '-':
+def insert_description(status, value):
+    if status == engine.NODE_DELETED:
         return 'was removed'
-    elif action == '+-':
+    elif status == engine.NODE_CHANGED:
         return "was changed. From '{}' to '{}'".format(
             check_result(value[1]), check_result(value[0])
             )
@@ -31,6 +34,6 @@ def insert_description(action, value):
 
 
 def check_result(data):
-    if type(data) == list or type(data) == dict:
+    if isinstance(data, list) or isinstance(data, dict):
         return 'complex value'
     return data

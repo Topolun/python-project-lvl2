@@ -5,14 +5,14 @@ def generate_diff(first_file, second_file, format):
 
 def compare(first, second):
     result = []
-    keys_for_first = set(first.keys())
-    keys_for_second = set(second.keys())
+    keys_for_first = first.keys()
+    keys_for_second = second.keys()
     for key, value in first.items():
         if key not in keys_for_second:
             result.append(deleted_node(key, value))
         elif value == second[key]:
             result.append(unchanged_node(key, value))
-        elif type(value) is dict and type(second[key]) is dict:
+        elif isinstance(value, dict) and isinstance(value, dict):
             result.append(nested_node(key, compare(value, second[key])))
         else:
             result.append(changed_node(key, (second[key], value)))
@@ -25,6 +25,10 @@ def compare(first, second):
 def make_node(status):
     return lambda key, value: {'STATUS': status, 'KEY': key, 'VALUE': value}
 
+
+STATUS = 'STATUS'
+KEY = 'KEY'
+VALUE = 'VALUE'
 
 NODE_NEW = '+'
 NODE_DELETED = '-'

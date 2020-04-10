@@ -1,11 +1,15 @@
+from gendiff import engine
+
+
 def format(items, level=0):
     result = '{\n'
     offset = '    ' * level
     for item in items:
-        result_of_compare = add_symbols(item['STATUS'])
-        key = item['KEY']
-        value = item['VALUE']
-        if isinstance(value, list):
+        status = item[engine.STATUS]
+        result_of_compare = add_symbols(status)
+        key = item[engine.KEY]
+        value = item[engine.VALUE]
+        if status == engine.NODE_NESTED:
             result += '{}{}{}: {}'.format(
                 offset, result_of_compare, key, format(value, level + 1)
                 )
@@ -29,7 +33,7 @@ def print_dict(dictionary, level):
     result = '{\n'
     offset = '    ' * level
     for key, value in dictionary.items():
-        if type(value) is dict:
+        if isinstance(value, dict):
             result += '{}    {}: {}'.format(
                 offset, key, print_dict(value, level + 1)
                 )
@@ -41,9 +45,9 @@ def print_dict(dictionary, level):
 
 
 def add_symbols(data):
-    if data == '+':
+    if data == engine.NODE_NEW:
         return '  + '
-    elif data == '-':
+    elif data == engine.NODE_DELETED:
         return '  - '
     else:
         return '    '
