@@ -1,6 +1,6 @@
 from gendiff.engine import generate_diff
 from gendiff.formatters import default
-from gendiff.parsers import load_file
+from gendiff.cli import load_file
 
 
 def test_compare_simple_yml_files_default_format():

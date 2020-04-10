@@ -5,15 +5,15 @@ def format(items, level=0):
         result_of_compare = add_symbols(item['STATUS'])
         key = item['KEY']
         value = item['VALUE']
-        if type(value) is list:
+        if isinstance(value, list):
             result += '{}{}{}: {}'.format(
                 offset, result_of_compare, key, format(value, level + 1)
                 )
-        elif type(value) is dict:
+        elif isinstance(value, dict):
             result += '{}{}{}: {}'.format(
                 offset, result_of_compare, key, print_dict(value, level + 1)
                 )
-        elif type(value) is tuple:
+        elif isinstance(value, tuple):
             result += '{}  + {}: {}\n'.format(offset, key, value[0])
             result += '{}  - {}: {}'.format(offset, key, value[1])
         else:

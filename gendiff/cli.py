@@ -5,7 +5,7 @@ import yaml
 import os
 
 
-def cli():
+def get_args():
     parser = argparse.ArgumentParser(description='Generate diff')
     parser.add_argument(
         '-f', '--format', type=choose_formatter,
@@ -26,7 +26,7 @@ def load_file(file):
     if extension == '.json':
         with open(file) as result:
             return json.load(result)
-    elif extension == '.yml':
+    elif extension == '.yml' or extension == '.yaml':
         with open(file) as result:
             return yaml.safe_load(result)
     else:

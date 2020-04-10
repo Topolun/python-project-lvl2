@@ -1,7 +1,7 @@
 from gendiff.engine import generate_diff
 import json
 from gendiff.formatters import json as format_json
-from gendiff.parsers import load_file
+from gendiff.cli import load_file
 
 def test_compare_json_files_json_format():
     with open('./tests/fixtures/advanced_file_result_json.json') as correct_answer:

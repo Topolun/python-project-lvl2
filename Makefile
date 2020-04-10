@@ -12,7 +12,7 @@ test_a:
 
 start:
 	poetry run gendiff ./tests/fixtures/before.json ./tests/fixtures/after.json
-	poetry run gendiff ./tests/fixtures/before.yml ./tests/fixtures/after.yml
+	poetry run gendiff ./tests/fixtures/before.yml ./tests/fixtures/after.yaml
 	poetry run gendiff ./tests/fixtures/before.txt ./tests/fixtures/after.txt
 
 start_advanced:

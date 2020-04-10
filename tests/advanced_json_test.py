@@ -1,6 +1,6 @@
 from gendiff.engine import generate_diff
 from gendiff.formatters import default
-from gendiff.parsers import load_file
+from gendiff.cli import load_file
 
 
 def test_compare_json_files_default_format():

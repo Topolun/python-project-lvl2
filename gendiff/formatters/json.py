@@ -5,7 +5,7 @@ def format(item):
     return json.dumps(prepare_for_json(item))
 
 
-def prepare_for_json(items, unpack=''):
+def prepare_for_json(items):
     result = {}
     for item in items:
         action = item['STATUS']
