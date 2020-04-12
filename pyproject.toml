@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "topolun_gendiff"
-version = "0.7.0"
+version = "0.8.0"
 description = "Check for diiferences in 2 files"
 authors = ["Topolun <vik83tu@yandex.ru>"]
 packages = [  { include = "gendiff" }, ]

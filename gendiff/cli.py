@@ -31,7 +31,7 @@ def load_file(file):
             return yaml.safe_load(result)
     else:
         message = "'{}' is incorrect file extension. Please choose {}".format(
-            extension, '.json or .yml')
+            extension, '.json or .yml or .yaml')
         raise argparse.ArgumentTypeError(message)
 
 

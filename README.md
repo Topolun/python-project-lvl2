@@ -23,12 +23,12 @@
 
     [![asciicast](https://asciinema.org/a/IgEtwSbdyTNTVT0LdQCTMTvlv.svg)](https://asciinema.org/a/IgEtwSbdyTNTVT0LdQCTMTvlv)
 
-- You may choose alternative output format by typing `--format plain` after `gendiff`
+- You may choose alternative output format by type it into the string `--format plain`
 
     [![asciicast](https://asciinema.org/a/idwz8M2KQ0VeusIFdd94QHSnk.svg)](https://asciinema.org/a/idwz8M2KQ0VeusIFdd94QHSnk)
 
-- Also you may choose output as JSON by typing `--format json` after `gendiff`
+- Also you may choose output as JSON by typing `--format json`
 
     [![asciicast](https://asciinema.org/a/qCGIUf6KGLs40nnsB1znrKf17.svg)](https://asciinema.org/a/qCGIUf6KGLs40nnsB1znrKf17)
 
-- This CLI is working just with `json` and `yml` formats. It doesn't work with any other formats
+- This CLI is working just with `json`, `yml` and `yaml` formats. It doesn't work with any other formats
