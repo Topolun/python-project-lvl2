@@ -1,36 +1,60 @@
 {
     "common": {
-        "setting1": "Value 1",
-        "deleted": {
-            "setting2": "200",
+        "STATUS": "changed",
+        "VALUE": {
+            "setting1": {
+                "STATUS":"unchanged",
+                "VALUE": "Value 1"
+            },
+            "setting2": {
+                "STATUS": "deleted",
+                "VALUE": "200"
+            },
+            "setting3": {
+                "STATUS": "unchanged",
+                "VALUE": true
+            },
             "setting6": {
-                "key": "value"
-            }
-        },
-        "setting3": true,
-        "added": {
-            "setting4": "blah blah",
+                "STATUS": "deleted",
+                "VALUE": {
+                    "key": "value"
+                }
+            },
+            "setting4": {
+                "STATUS": "added",
+                "VALUE": "blah blah"
+            },
             "setting5": {
-                "key5": "value5"
+                "STATUS": "added",
+                "VALUE": {
+                    "key5": "value5"
+                }
             }
         }
     },
     "group1": {
-        "added": {
-          "baz": "bars"
-        },
-        "deleted": {
-            "baz": "bas"
-        },
-        "foo": "bar"
+        "STATUS": "changed",
+        "VALUE": {
+            "baz": {
+                "STATUS": "replaced",
+                "NEW_VALUE": "bars",
+                "OLD_VALUE": "bas"
+            },
+            "foo": {
+                "STATUS": "unchanged",
+                "VALUE": "bar"
+            }
+        }        
     },
-    "deleted": {
-        "group2": {
+    "group2": {
+        "STATUS": "deleted",
+        "VALUE": {
             "abc": "12345"
         }
     },
-    "added": {
-        "group3": {
+    "group3": {
+        "STATUS": "added",
+        "VALUE": {
             "fee": "100500"
         }
     }

@@ -17,7 +17,7 @@ def format(items, level=0):
             result += '{}{}{}: {}'.format(
                 offset, result_of_compare, key, print_dict(value, level + 1)
                 )
-        elif isinstance(value, tuple):
+        elif status == engine.NODE_CHANGED:
             result += '{}  + {}: {}\n'.format(offset, key, value[0])
             result += '{}  - {}: {}'.format(offset, key, value[1])
         else:

@@ -30,11 +30,11 @@ STATUS = 'STATUS'
 KEY = 'KEY'
 VALUE = 'VALUE'
 
-NODE_NEW = '+'
-NODE_DELETED = '-'
-NODE_UNCHANGED = '='
-NODE_CHANGED = '+-'
-NODE_NESTED = '!='
+NODE_NEW = 'added'
+NODE_DELETED = 'deleted'
+NODE_UNCHANGED = 'unchanged'
+NODE_CHANGED = 'replaced'
+NODE_NESTED = 'changed'
 
 deleted_node = make_node(NODE_DELETED)
 new_node = make_node(NODE_NEW)
