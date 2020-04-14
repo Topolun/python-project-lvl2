@@ -3,32 +3,36 @@ from gendiff import engine
 
 def format(data, path=''):
     result = ''
-    if isinstance(data, list):
-        for item in data:
-            status = item[engine.STATUS]
-            key = item[engine.KEY]
-            value = item[engine.VALUE]
-            if status == engine.NODE_NEW or status == engine.NODE_DELETED:
-                way = "Property '{}{}' {}\n".format(
-                    path, key, insert_description(status, value)
+    for key in data:
+        status = data[key][engine.STATUS]
+        value = data[key][engine.VALUE]
+        if status == engine.NODE_UNCHANGED:
+            continue
+        elif status == engine.NODE_NEW or status == engine.NODE_DELETED:
+            way = "Property '{}{}' {}\n".format(
+                path, key, insert_description(status, value)
+                )
+        elif status == engine.NODE_CHANGED:
+            way = "Property '{}{}' {}\n".format(
+                path, key, insert_description(
+                    status, value, data[key][engine.OLD_VALUE]
                     )
-            elif status == engine.NODE_CHANGED:
-                way = "Property '{}{}' {}\n".format(
-                    path, key, insert_description(status, value)
-                    )
-            else:
-                new_path = path + '{}.'.format(key)
-                way = format(value, new_path)
-            result += way
+                )
+        elif status == engine.NODE_UNCHANGED:
+            continue
+        else:
+            new_path = path + '{}.'.format(key)
+            way = format(value, new_path)
+        result += way
     return result
 
 
-def insert_description(status, value):
+def insert_description(status, value, old_value=None):
     if status == engine.NODE_DELETED:
         return 'was removed'
     elif status == engine.NODE_CHANGED:
         return "was changed. From '{}' to '{}'".format(
-            check_result(value[1]), check_result(value[0])
+            check_result(old_value), check_result(value)
             )
     return "was added with value: '{}'".format(check_result(value))
 

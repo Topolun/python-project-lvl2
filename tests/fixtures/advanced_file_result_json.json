@@ -37,7 +37,7 @@
         "VALUE": {
             "baz": {
                 "STATUS": "replaced",
-                "NEW_VALUE": "bars",
+                "VALUE": "bars",
                 "OLD_VALUE": "bas"
             },
             "foo": {

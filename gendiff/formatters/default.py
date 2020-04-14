@@ -1,14 +1,13 @@
 from gendiff import engine
 
 
-def format(items, level=0):
+def format(data, level=0):
     result = '{\n'
     offset = '    ' * level
-    for item in items:
-        status = item[engine.STATUS]
+    for key in data:
+        status = data[key][engine.STATUS]
         result_of_compare = add_symbols(status)
-        key = item[engine.KEY]
-        value = item[engine.VALUE]
+        value = data[key][engine.VALUE]
         if status == engine.NODE_NESTED:
             result += '{}{}{}: {}'.format(
                 offset, result_of_compare, key, format(value, level + 1)
@@ -18,8 +17,10 @@ def format(items, level=0):
                 offset, result_of_compare, key, print_dict(value, level + 1)
                 )
         elif status == engine.NODE_CHANGED:
-            result += '{}  + {}: {}\n'.format(offset, key, value[0])
-            result += '{}  - {}: {}'.format(offset, key, value[1])
+            result += '{}  + {}: {}\n'.format(offset, key, value)
+            result += '{}  - {}: {}'.format(
+                offset, key, data[key][engine.OLD_VALUE]
+                )
         else:
             result += '{}{}{}: {}'.format(
                 offset, result_of_compare, key, value
